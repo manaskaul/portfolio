@@ -2,7 +2,7 @@ import { MutableRefObject, useEffect, useRef } from "react";
 
 const timer = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-function TypingText({ textList }) {
+function TypingText({ textList }: { textList: string[] }) {
   const textRef: MutableRefObject<HTMLSpanElement | null> = useRef(null);
 
   useEffect(() => {
@@ -40,6 +40,7 @@ function TypingText({ textList }) {
     };
 
     animateText();
+    console.log("animate text");
   }, []);
 
   return <span ref={textRef}></span>;

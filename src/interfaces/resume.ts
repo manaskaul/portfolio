@@ -1,4 +1,4 @@
-export interface Resume {
+export interface ResumeItem {
   name: string;
   designation: string;
   description: string;

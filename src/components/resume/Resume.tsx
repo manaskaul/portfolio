@@ -1,9 +1,9 @@
-import { Resume, Section, SubSection } from "../../interfaces/resume";
+import { ResumeItem, Section, SubSection } from "../../interfaces/resume";
 import resumeJson from "../../resume.json";
 import "./Resume.css";
 
 export default function Resume() {
-  const resume: Resume = JSON.parse(JSON.stringify(resumeJson));
+  const resume: ResumeItem = JSON.parse(JSON.stringify(resumeJson));
 
   const sections = resume.sections.map((section: Section, i: number) => {
     const subSections = section.subsection.map(
