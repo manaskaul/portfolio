@@ -1,0 +1,37 @@
+.footer {
+  padding: 32px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(2, 23, 53, 0.1);
+
+  .footer-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .sub-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-title > img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .sub-title > a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}

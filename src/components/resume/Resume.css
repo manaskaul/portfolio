@@ -1,0 +1,40 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  align-self: center;
+  margin-top: 64px;
+  text-align: justify;
+
+  /* .left-nav {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+  }
+
+  .right-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 200px;
+    padding: 0 20px;
+  } */
+
+  .sub-heading {
+    position: relative;
+    border-left: 2px solid black;
+    padding-left: 24px;
+  }
+
+  .sub-heading::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    left: -9px;
+    top: 0;
+    background: #fff;
+    border: 2px solid black;
+  }
+}

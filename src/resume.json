@@ -1,0 +1,128 @@
+{
+  "name": "Manas Kaul",
+  "designation": "Full Stack Software Engineer",
+  "description": "I'm a passionate and results-driven Full Stack Engineer with expertise in building dynamic web applications using Angular and TypeScript and robust and reliable backend systems using Java. I thrive on turning ideas into reality and creating user-friendly experiences that leave a lasting impact.",
+  "contact": [
+    {
+      "text": "Pune, Maharashtra",
+      "link": "https://maps.app.goo.gl/v5uvRSUg74GRqNcC8",
+      "icon": "address"
+    },
+    {
+      "text": "manas-kaul",
+      "link": "https://www.linkedin.com/in/manas-kaul/",
+      "icon": "linkedin"
+    },
+    {
+      "text": "manas.kaul2@gmail.com",
+      "link": "mailto:manas.kaul2@gmail.com",
+      "icon": "email"
+    },
+    {
+      "text": "+91 7889-827521",
+      "link": "tel:7889827521",
+      "icon": "phone"
+    },
+    {
+      "text": "manaskaul",
+      "link": "https://github.com/manaskaul",
+      "icon": "gitub"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Experience",
+      "subsection": [
+        {
+          "heading": "XPO, Inc",
+          "subHeading1": "Full Stack Developer - SDE II",
+          "subHeading2": "July 2021 - Present | Pune, MH",
+          "description": [
+            "2+ years of front-end development expertise, focusing on web application design and maintenance.",
+            "Improved user experience for existing applications and migration of legacy systems to newer technology and standards.",
+            "Collaborated with cross-functional teams to ensure on-time and on-budget project delivery.",
+            "Awarded XPO Super-Star and XPO Value-Champion."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Projects",
+      "subsection": [
+        {
+          "heading": "Locations Admin",
+          "subHeading1": "Full Stack Developer at XPO",
+          "subHeading2": "Angular, Typescript, Java",
+          "description": [
+            "Spearheaded migration of the legacy application to an Angular-based solution, overseeing the entire front-end code base.",
+            "Developed end-to-end features which involved back-end API development.",
+            "Guided and mentored a dedicated team to ensure best practices and coding standards."
+          ]
+        },
+        {
+          "heading": "Equipment Licensing",
+          "subHeading1": "Front End Developer at XPO",
+          "subHeading2": "Angular, Typescript",
+          "description": [
+            "Enhanced user experience for equipment licensing processes, improving customer efficiency.",
+            "Engaged in ongoing discussions with shareholders to ensure alignment between development efforts and evolving project objectives.",
+            "Led project ownership and played a pivotal role in developing and successfully deploying the project to production."
+          ]
+        },
+        {
+          "heading": "Privacy Wind",
+          "subHeading1": "Front End Developer at XPO",
+          "subHeading2": "Flutter, Dart, Java",
+          "description": [
+            "Developed PrivacyWind Android application, a privacy-focused application designed to empower users with control over permissions for their installed applications.",
+            "Developed features like permission manager, app search, real-time app activity monitoring & logging system, and app comparison tools to provide users with a robust privacy control suite."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "subsection": [
+        {
+          "heading": "DA-IICT, Gujarat",
+          "subHeading1": "",
+          "subHeading2": "July 2017 - April 2021 | CGPA: 7.1",
+          "description": [
+            "B. Tech in Computer Science & Engineering",
+            "Member of DA-IICT Film Club"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Skills",
+      "subsection": [
+        {
+          "heading": "Programming",
+          "subHeading1": "",
+          "subHeading2": "",
+          "description": ["HTML", "CSS/SCSS", "Javascript/Typescript", "Java"]
+        },
+        {
+          "heading": "Libraries/Frameworks",
+          "subHeading1": "",
+          "subHeading2": "",
+          "description": [
+            "Angular",
+            "Material-UI",
+            "RxJS",
+            "Ag-Grid",
+            "J2EE",
+            "MySQL"
+          ]
+        },
+        {
+          "heading": "Tools/Platforms",
+          "subHeading1": "",
+          "subHeading2": "",
+          "description": ["Git", "Figma", "Teamcity • Octopus"]
+        }
+      ]
+    }
+  ]
+}
