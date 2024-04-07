@@ -15,17 +15,6 @@ function TypingText({ textList }) {
             await timer(1500);
             await deleteWord();
             await timer(500);
-            // const text = textList[i];
-            // const len = text.length * 2;
-            // for (let j = 0; j <= len; j++) {
-            //   if (j < text.length) {
-            //     textRef.current.textContent = text.slice(0, j);
-            //     await timer(200);
-            //   } else {
-            //     textRef.current.textContent = text.slice(0, len - j);
-            //     await timer(75);
-            //   }
-            // }
           }
         }
       }
@@ -37,7 +26,6 @@ function TypingText({ textList }) {
           textRef.current.textContent = word.slice(0, i);
           await timer(200);
         }
-        console.log("type");
       }
     };
 
@@ -48,7 +36,6 @@ function TypingText({ textList }) {
           textRef.current.textContent = word.slice(0, i);
           await timer(75);
         }
-        console.log("delete");
       }
     };
 
