@@ -40,7 +40,6 @@ function TypingText({ textList }: { textList: string[] }) {
     };
 
     animateText();
-    console.log("animate text");
   }, []);
 
   return <span ref={textRef}></span>;
