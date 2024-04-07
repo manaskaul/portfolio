@@ -1,24 +1,10 @@
 .resume {
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  max-width: 775px;
   align-self: center;
   margin-top: 64px;
   text-align: justify;
-
-  /* .left-nav {
-    position: fixed;
-    width: 200px;
-    height: 100%;
-  }
-
-  .right-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin-left: 200px;
-    padding: 0 20px;
-  } */
 
   .sub-heading {
     position: relative;
@@ -36,5 +22,10 @@
     top: 0;
     background: #fff;
     border: 2px solid black;
+  }
+
+  a {
+    color: inherit;
+    font-weight: inherit;
   }
 }

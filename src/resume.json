@@ -1,7 +1,7 @@
 {
   "name": "Manas Kaul",
   "designation": "Full Stack Software Engineer",
-  "description": "I'm a passionate and results-driven Full Stack Engineer with expertise in building dynamic web applications using Angular and TypeScript and robust and reliable backend systems using Java. I thrive on turning ideas into reality and creating user-friendly experiences that leave a lasting impact.",
+  "description": "Software Engineer, Full Stack Development, DA-IICT'21",
   "contact": [
     {
       "text": "Pune, Maharashtra",
@@ -85,7 +85,6 @@
       "subsection": [
         {
           "heading": "DA-IICT, Gujarat",
-          "subHeading1": "",
           "subHeading2": "July 2017 - April 2021 | CGPA: 7.1",
           "description": [
             "B. Tech in Computer Science & Engineering",
@@ -99,14 +98,10 @@
       "subsection": [
         {
           "heading": "Programming",
-          "subHeading1": "",
-          "subHeading2": "",
           "description": ["HTML", "CSS/SCSS", "Javascript/Typescript", "Java"]
         },
         {
           "heading": "Libraries/Frameworks",
-          "subHeading1": "",
-          "subHeading2": "",
           "description": [
             "Angular",
             "Material-UI",
@@ -118,8 +113,6 @@
         },
         {
           "heading": "Tools/Platforms",
-          "subHeading1": "",
-          "subHeading2": "",
           "description": ["Git", "Figma", "Teamcity • Octopus"]
         }
       ]
