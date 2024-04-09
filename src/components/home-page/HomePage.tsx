@@ -19,7 +19,6 @@ export default function HomePage() {
           <div className="heading">
             <span>
               I'm a <TypingText textList={arr} />
-              <span className="cursor">|</span>
             </span>
           </div>
           <div className="sub-heading">

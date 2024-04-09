@@ -1,4 +1,5 @@
 import { MutableRefObject, useEffect, useRef } from "react";
+import "./TypingText.css";
 
 const timer = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
@@ -42,7 +43,12 @@ function TypingText({ textList }: { textList: string[] }) {
     animateText();
   }, []);
 
-  return <span ref={textRef}></span>;
+  return (
+    <>
+      <span ref={textRef}></span>
+      <span className="cursor">|</span>
+    </>
+  );
 }
 
 export default TypingText;
