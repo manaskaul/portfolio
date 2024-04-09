@@ -24,14 +24,17 @@
       gap: 8px;
     }
 
-    .sub-title > img {
-      width: 30px;
-      height: 30px;
-    }
-
     .sub-title > a {
+      display: flex;
+      align-items: center;
       cursor: pointer;
       text-decoration: none;
+      gap: 8px;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }

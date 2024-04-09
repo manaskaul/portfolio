@@ -32,10 +32,10 @@
       background: #fff;
       border: 2px solid black;
     }
+  }
 
-    a {
-      color: inherit;
-      font-weight: inherit;
-    }
+  a {
+    color: #535bf2;
+    font-weight: inherit;
   }
 }
