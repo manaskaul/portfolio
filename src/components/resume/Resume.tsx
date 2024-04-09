@@ -34,7 +34,7 @@ export default function Resume() {
   });
 
   return (
-    <>
+    <div className="resume">
       <div className="heading">
         <h1>Resume</h1>
         <div className="">
@@ -49,7 +49,7 @@ export default function Resume() {
         </div>
         <div className="divider"></div>
       </div>
-      <div className="resume">
+      <div className="content">
         <p>
           I'm a Full-Stack Engineer at XPO, where I build dynamic web
           applications using Angular and TypeScript and robust and reliable
@@ -97,6 +97,6 @@ export default function Resume() {
 
         <>{sections}</>
       </div>
-    </>
+    </div>
   );
 }
