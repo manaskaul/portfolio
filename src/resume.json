@@ -113,7 +113,7 @@
         },
         {
           "heading": "Tools/Platforms",
-          "description": ["Git", "Figma", "Teamcity • Octopus"]
+          "description": ["Git", "Figma", "Teamcity", "Octopus"]
         }
       ]
     }

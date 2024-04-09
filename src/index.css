@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --max-width: 1500px;
+  --outline-color: rgba(2, 23, 53, 0.1);
 }
 
 a {
@@ -67,4 +68,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.divider {
+  width: calc(100% - 80px);
+  border-top: 1px solid var(--outline-color);
+  margin: 10px 0px;
+  box-sizing: border-box;
 }
