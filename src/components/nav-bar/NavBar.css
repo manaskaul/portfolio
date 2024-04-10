@@ -59,4 +59,10 @@
     cursor: pointer;
     color: #006adc;
   }
+
+  @media (max-width: 500px) {
+    .designation {
+      display: none;
+    }
+  }
 }

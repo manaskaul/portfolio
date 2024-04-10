@@ -8,11 +8,9 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <div className="main-content">
-        <img
-          src="./assets/images/IMG_1423.jpeg"
-          alt="email"
-          className="profile-pic"
-        />
+        <div>
+          <img src="./assets/images/IMG_1423.jpeg" className="profile-pic" />
+        </div>
         <div className="profile-text">
           <div className="name">Manas Kaul</div>
           <div className="heading">
