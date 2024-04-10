@@ -20,6 +20,14 @@
       position: relative;
       border-left: 2px solid black;
       padding-left: 24px;
+
+      h3, h4 {
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-top: 0;
+      }
     }
 
     .sub-heading::before {
@@ -38,5 +46,28 @@
   a {
     color: #535bf2;
     font-weight: inherit;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .contact-item {
+      align-items: center;
+
+      a {
+        color: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
 }

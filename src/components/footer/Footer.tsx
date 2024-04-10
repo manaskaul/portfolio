@@ -19,19 +19,6 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-link">
-          <div className="title">GitHub</div>
-          <div className="sub-title">
-            <a
-              href="https://github.com/manaskaul"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="./assets/icons/github.svg" alt="github" />
-              manaskaul
-            </a>
-          </div>
-        </div>
-        <div className="footer-link">
           <div className="title">LinkedIn</div>
           <div className="sub-title">
             <a
@@ -41,6 +28,19 @@ export default function Footer() {
             >
               <img src="./assets/icons/linkedin.svg" alt="linkedIn" />
               manas-kaul
+            </a>
+          </div>
+        </div>
+        <div className="footer-link">
+          <div className="title">GitHub</div>
+          <div className="sub-title">
+            <a
+              href="https://github.com/manaskaul"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./assets/icons/github.svg" alt="github" />
+              manaskaul
             </a>
           </div>
         </div>

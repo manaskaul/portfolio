@@ -2,11 +2,19 @@ export interface ResumeItem {
   name: string;
   designation: string;
   description: string;
-  contact: Contact[];
+  contact: Contact;
   sections: Section[];
 }
 
 export interface Contact {
+  address: ContactDetail;
+  linkedin: ContactDetail;
+  email: ContactDetail;
+  phone: ContactDetail;
+  github: ContactDetail;
+}
+
+export interface ContactDetail {
   text: string;
   link: string;
   icon: string;

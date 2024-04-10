@@ -17,8 +17,7 @@ export default function Resume() {
         return (
           <div className="sub-heading" key={i}>
             <h3>{subSection.heading}</h3>
-            <p>{subSection.subHeading1}</p>
-            <p>{subSection.subHeading2}</p>
+            <h4>{subSection.subHeading1}</h4>
             <ul>{subSectionDesc}</ul>
           </div>
         );
@@ -50,48 +49,43 @@ export default function Resume() {
         <div className="divider"></div>
       </div>
       <div className="content">
-        <p>
-          I'm a Full-Stack Engineer at XPO, where I build dynamic web
-          applications using Angular and TypeScript and robust and reliable
-          backend systems using Java. I have a Bachelor of Technology degree in
-          Computer Science from Dhirubhai Ambani Institute of Information and
-          Communication Technology (DAIICT), one of the top engineering colleges
-          in India.
-        </p>
         <div className="summary">
-          <h3>Summary</h3>
+          <h2>Summary</h2>
           <div className="sub-heading">
             <h4>{resume.name}</h4>
             <p>{resume.description}</p>
-            {/* <ul>
-              <li>
+            <div className="contact-links">
+              <div className="contact-item">
                 <a
-                  href="https://www.linkedin.com/in/manas-kaul/"
+                  href={resume.contact.address.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  linkedin.com/in/manas-kaul/
+                  <img src={"./assets/icons/"+resume.contact.address.icon+".svg"} alt="address" />
+                  {resume.contact.address.text}
                 </a>
-              </li>
-              <li>
+              </div>
+              <div className="contact-item">
                 <a
-                  href="mailto:manas.kaul2@gmail.com"
+                  href={resume.contact.email.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  manas.kaul2@gmail.com
+                  <img src={"./assets/icons/"+resume.contact.email.icon+".svg"} alt="email" />
+                  {resume.contact.email.text}
                 </a>
-              </li>
-              <li>
+              </div>
+              <div className="contact-item">
                 <a
-                  href="https://maps.app.goo.gl/v5uvRSUg74GRqNcC8"
+                  href={resume.contact.linkedin.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Pune, Maharashtra
+                  <img src={"./assets/icons/"+resume.contact.linkedin.icon+".svg"} alt="linkedin" />
+                  {resume.contact.linkedin.text}
                 </a>
-              </li>
-            </ul> */}
+              </div>
+            </div>
           </div>
         </div>
 
