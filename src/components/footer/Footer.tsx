@@ -1,4 +1,5 @@
 import "./Footer.css";
+import resumeJson from "../../resume.json";
 
 export default function Footer() {
   return (
@@ -9,12 +10,15 @@ export default function Footer() {
           <div className="title">Email</div>
           <div className="sub-title">
             <a
-              href="mailto:manas.kaul2@gmail.com"
+              href={resumeJson.contact.email.link}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./assets/icons/email.svg" alt="email" />
-              manas.kaul2
+              <img
+                src={"./assets/icons/" + resumeJson.contact.email.icon + ".svg"}
+                alt="email"
+              />
+              {resumeJson.contact.email.text}
             </a>
           </div>
         </div>
@@ -22,12 +26,17 @@ export default function Footer() {
           <div className="title">LinkedIn</div>
           <div className="sub-title">
             <a
-              href="https://www.linkedin.com/in/manas-kaul/"
+              href={resumeJson.contact.linkedin.link}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./assets/icons/linkedin.svg" alt="linkedIn" />
-              manas-kaul
+              <img
+                src={
+                  "./assets/icons/" + resumeJson.contact.linkedin.icon + ".svg"
+                }
+                alt="linkedIn"
+              />
+              {resumeJson.contact.linkedin.text}
             </a>
           </div>
         </div>
@@ -35,12 +44,17 @@ export default function Footer() {
           <div className="title">GitHub</div>
           <div className="sub-title">
             <a
-              href="https://github.com/manaskaul"
+              href={resumeJson.contact.github.icon}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./assets/icons/github.svg" alt="github" />
-              manaskaul
+              <img
+                src={
+                  "./assets/icons/" + resumeJson.contact.github.icon + ".svg"
+                }
+                alt="github"
+              />
+              {resumeJson.contact.github.text}
             </a>
           </div>
         </div>
