@@ -13,7 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 
   --max-width: 1500px;
+  /* --outline-color: rgba(2, 23, 53, 0.1); */
+}
+
+[data-theme="light"] {
+  --background-color: white;
+  --text-color: black;
   --outline-color: rgba(2, 23, 53, 0.1);
+}
+
+[data-theme="dark"] {
+  --background-color: rgb(45, 44, 44);
+  --text-color: white;
+  --outline-color: rgba(201, 221, 248, 0.3);
 }
 
 a {
@@ -31,6 +43,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 0.5s;
 }
 
 h1 {

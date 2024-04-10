@@ -56,4 +56,12 @@
       align-self: center;
     }
   }
+
+  .egg {
+    height: 25px;
+    width: auto;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
 }
