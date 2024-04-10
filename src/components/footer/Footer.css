@@ -4,12 +4,14 @@
   margin: auto;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid rgba(2, 23, 53, 0.1);
+  gap: 16px;
+  box-sizing: border-box;
 
   .footer-link {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    /* min-width: 150px; */
 
     .title {
       font-size: 1.25rem;
@@ -36,5 +38,12 @@
         height: 30px;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    /* align-items: center; */
   }
 }

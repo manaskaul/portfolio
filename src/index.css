@@ -75,6 +75,7 @@ button:focus-visible {
   border-top: 1px solid var(--outline-color);
   margin: 10px 0px;
   box-sizing: border-box;
+  align-self: center;
 }
 
 .seperator {

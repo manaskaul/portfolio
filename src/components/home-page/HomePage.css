@@ -10,12 +10,15 @@
     justify-content: center;
     flex: 1;
     gap: 16px;
+    margin: 20px 40px;
 
-    .profile-pic-new {
-      width: 400px;
-      min-width: 200px;
-      height: 400px;
-      min-height: 200px;
+    .profile-pic {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      max-height: 400px;
+      min-height: 150px;
+      min-width: 150px;
       border-radius: 100%;
       background: #eee no-repeat center;
       background-size: cover;
@@ -40,6 +43,12 @@
         font-size: 1.25rem;
         text-align: justify;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
     }
   }
 }
