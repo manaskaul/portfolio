@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="title">GitHub</div>
           <div className="sub-title">
             <a
-              href={resumeJson.contact.github.icon}
+              href={resumeJson.contact.github.link}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -71,7 +71,7 @@ export default function Footer() {
                 }
                 alt="github"
               />
-              {resumeJson.contact.github.link}
+              {resumeJson.contact.github.text}
             </a>
           </div>
         </div>
