@@ -16,6 +16,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    box-shadow: 0px 12px 16px -8px var(--shadow-color);
 
     .left-nav {
       display: flex;

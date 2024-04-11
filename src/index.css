@@ -17,6 +17,7 @@
   --text-color: #0F0F0F;
   --outline-color: #E5E4E4;
   --link-color: #535bf2;
+  --shadow-color: #d5d5d5;
 }
 
 [data-theme="dark"] {
@@ -25,6 +26,7 @@
   --text-color: #F1F0F0;
   --outline-color: #3F3F3F;
   --link-color: #4fa3ff;
+  --shadow-color: #333333;
 }
 
 a {
