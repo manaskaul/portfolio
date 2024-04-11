@@ -1,9 +1,11 @@
+import { useTheme } from "../../hooks/use-theme";
 import { ResumeItem, Section, SubSection } from "../../interfaces/resume";
 import resumeJson from "../../resume.json";
 import "./Resume.css";
 
 export default function Resume() {
   const resume: ResumeItem = JSON.parse(JSON.stringify(resumeJson));
+  const {theme} = useTheme();
 
   const sections = resume.sections.map((section: Section, i: number) => {
     const subSections = section.subsection.map(
@@ -61,7 +63,12 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={"./assets/icons/"+resume.contact.address.icon+".svg"} alt="address" />
+                  <img
+                    src={
+                      "./assets/icons/" + theme + "-" + resume.contact.address.icon + ".svg"
+                    }
+                    alt="address"
+                  />
                   {resume.contact.address.text}
                 </a>
               </div>
@@ -71,7 +78,10 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={"./assets/icons/"+resume.contact.email.icon+".svg"} alt="email" />
+                  <img
+                    src={"./assets/icons/" + theme + "-" + resume.contact.email.icon + ".svg"}
+                    alt="email"
+                  />
                   {resume.contact.email.text}
                 </a>
               </div>
@@ -81,7 +91,12 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={"./assets/icons/"+resume.contact.linkedin.icon+".svg"} alt="linkedin" />
+                  <img
+                    src={
+                      "./assets/icons/" + theme + "-" + resume.contact.linkedin.icon + ".svg"
+                    }
+                    alt="linkedin"
+                  />
                   {resume.contact.linkedin.text}
                 </a>
               </div>

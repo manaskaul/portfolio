@@ -1,7 +1,10 @@
 import "./Footer.css";
 import resumeJson from "../../resume.json";
+import { useTheme } from "../../hooks/use-theme";
 
 export default function Footer() {
+  const { theme } = useTheme();
+  
   return (
     <>
       <div className="divider"></div>
@@ -15,7 +18,7 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <img
-                src={"./assets/icons/" + resumeJson.contact.email.icon + ".svg"}
+                src={"./assets/icons/" + theme + "-" + resumeJson.contact.email.icon + ".svg"}
                 alt="email"
               />
               {resumeJson.contact.email.text}
@@ -32,7 +35,7 @@ export default function Footer() {
             >
               <img
                 src={
-                  "./assets/icons/" + resumeJson.contact.linkedin.icon + ".svg"
+                  "./assets/icons/" + theme + "-" + resumeJson.contact.linkedin.icon + ".svg"
                 }
                 alt="linkedIn"
               />
@@ -50,7 +53,7 @@ export default function Footer() {
             >
               <img
                 src={
-                  "./assets/icons/" + resumeJson.contact.github.icon + ".svg"
+                  "./assets/icons/" + theme + "-" + resumeJson.contact.github.icon + ".svg"
                 }
                 alt="github"
               />

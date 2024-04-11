@@ -63,3 +63,7 @@ h1 {
 .seperator {
   border: 0.75px solid var(--text-color);
 }
+
+svg path {
+  fill: "#FFF"
+}
