@@ -1,5 +1,5 @@
-import { MutableRefObject, useRef } from "react";
-import { useTheme } from "../../contexts/theme-context";
+import { MutableRefObject, useRef, useState } from "react";
+import { useTheme } from "../../hooks/use-theme";
 import Footer from "../footer/Footer";
 import TypingText from "../typing-text/TypingText";
 import "./HomePage.css";
@@ -9,6 +9,7 @@ const arr = ["Engineer", "Developer"];
 export default function HomePage() {
   const { toggleTheme } = useTheme();
   const easterEggRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
+  const [hasSeenDarkSide, setHasSeenDarkSide] = useState(false);
 
   const easterEgg = () => {
     let clicks = 0;
@@ -29,6 +30,10 @@ export default function HomePage() {
       if (clicks >= 9) {
         toggleTheme();
         clicks = 0;
+        if (!hasSeenDarkSide) {
+          console.log("Ranger, welcome to the dark side!")
+          setHasSeenDarkSide(true);
+        }
       }
     };
   };
