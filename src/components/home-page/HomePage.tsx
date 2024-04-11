@@ -16,10 +16,10 @@ export default function HomePage() {
     let timeoutId: number;
 
     return () => {
-      if (++clicks >= 3) {
-        if (easterEggRef.current) {
-          easterEggRef.current.style.transform = clicks % 2 == 0 ? "rotate(-40deg)" : "rotate(40deg)";
-        }
+      clicks++
+      
+      if (easterEggRef.current) {
+        easterEggRef.current.style.transform = clicks % 2 == 0 ? "rotate(-40deg)" : "rotate(40deg)";
       }
 
       clearTimeout(timeoutId);
@@ -27,7 +27,7 @@ export default function HomePage() {
         clicks = 0;
       }, 1500);
 
-      if (clicks >= 9) {
+      if (clicks >= 7) {
         toggleTheme();
         clicks = 0;
         if (!hasSeenDarkSide) {
