@@ -4,7 +4,7 @@ import Footer from "../footer/Footer";
 import TypingText from "../typing-text/TypingText";
 import "./HomePage.css";
 
-const arr = ["Engineer", "Developer"];
+const arr = ["an Engineer", "a Developer"];
 
 export default function HomePage() {
   const { toggleTheme } = useTheme();
@@ -56,7 +56,7 @@ export default function HomePage() {
           </div>
           <div className="heading">
             <span>
-              I'm a <TypingText textList={arr} />
+              I'm <TypingText textList={arr} />
             </span>
           </div>
           <div className="sub-heading">
