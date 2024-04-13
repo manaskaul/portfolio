@@ -1,3 +1,11 @@
+[data-theme="light"] {
+  --externalLink: url("../../../public/assets/icons/light-external.svg");
+}
+
+[data-theme="dark"] {
+  --externalLink: url("../../../public/assets/icons/dark-external.svg");
+}
+
 .footer {
   padding: 32px;
   width: 100%;
@@ -37,6 +45,14 @@
         width: 30px;
         height: 30px;
       }
+    }
+
+    .sub-title > a::after {
+      content: "";
+      height: 14px;
+      width: 14px;
+      background: var(--externalLink);
+      background-repeat: no-repeat;
     }
   }
 }

@@ -13,18 +13,18 @@
 
 [data-theme="light"] {
   /* Youtube Theme */
-  --background-color: #FFFFFF;
-  --text-color: #0F0F0F;
-  --outline-color: #E5E4E4;
+  --background-color: #ffffff;
+  --text-color: #0f0f0f;
+  --outline-color: #e5e4e4;
   --link-color: #535bf2;
   --shadow-color: #d5d5d5;
 }
 
 [data-theme="dark"] {
   /* Youtube Theme */
-  --background-color: #0F0F0F;
-  --text-color: #F1F0F0;
-  --outline-color: #3F3F3F;
+  --background-color: #0f0f0f;
+  --text-color: #f1f0f0;
+  --outline-color: #3f3f3f;
   --link-color: #4fa3ff;
   --shadow-color: #333333;
 }
@@ -67,5 +67,5 @@ h1 {
 }
 
 svg path {
-  fill: "#FFF"
+  fill: "#FFF";
 }

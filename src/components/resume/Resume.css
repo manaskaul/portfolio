@@ -1,3 +1,11 @@
+[data-theme="light"] {
+  --externalLink: url("../../../public/assets/icons/light-external.svg");
+}
+
+[data-theme="dark"] {
+  --externalLink: url("../../../public/assets/icons/dark-external.svg");
+}
+
 .resume {
   display: flex;
   flex-direction: column;
@@ -6,6 +14,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .resume-link {
+      color: var(--link-color);
+      font-weight: inherit;
+    }
   }
 
   .content {
@@ -21,7 +34,8 @@
       border-left: 2px solid var(--text-color);
       padding-left: 24px;
 
-      h3, h4 {
+      h3,
+      h4 {
         margin-bottom: 10px;
       }
 
@@ -44,7 +58,6 @@
   }
 
   a {
-    color: var(--link-color);
     font-weight: inherit;
   }
 
@@ -57,7 +70,6 @@
       align-items: center;
 
       a {
-        color: inherit;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -68,6 +80,14 @@
         width: 25px;
         height: 25px;
       }
+    }
+
+    .contact-item > a::after {
+      content: "";
+      height: 14px;
+      width: 14px;
+      background: var(--externalLink);
+      background-repeat: no-repeat;
     }
   }
 }

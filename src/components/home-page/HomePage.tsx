@@ -28,7 +28,7 @@ export default function HomePage() {
         clicks = 0;
       }, 1500);
 
-      if (clicks >= 7) {
+      if (clicks >= 4) {
         toggleTheme();
         clicks = 0;
         if (!hasSeenDarkSide) {

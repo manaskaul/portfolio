@@ -5,7 +5,7 @@ import "./Resume.css";
 
 export default function Resume() {
   const resume: ResumeItem = JSON.parse(JSON.stringify(resumeJson));
-  const {theme} = useTheme();
+  const { theme } = useTheme();
 
   const sections = resume.sections.map((section: Section, i: number) => {
     const subSections = section.subsection.map(
@@ -44,6 +44,7 @@ export default function Resume() {
             href="./assets/manas_kaul-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            className="resume-link"
           >
             here.
           </a>
@@ -65,7 +66,11 @@ export default function Resume() {
                 >
                   <img
                     src={
-                      "./assets/icons/" + theme + "-" + resume.contact.address.icon + ".svg"
+                      "./assets/icons/" +
+                      theme +
+                      "-" +
+                      resume.contact.address.icon +
+                      ".svg"
                     }
                     alt="address"
                   />
@@ -79,7 +84,13 @@ export default function Resume() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src={"./assets/icons/" + theme + "-" + resume.contact.email.icon + ".svg"}
+                    src={
+                      "./assets/icons/" +
+                      theme +
+                      "-" +
+                      resume.contact.email.icon +
+                      ".svg"
+                    }
                     alt="email"
                   />
                   {resume.contact.email.text}
@@ -93,7 +104,11 @@ export default function Resume() {
                 >
                   <img
                     src={
-                      "./assets/icons/" + theme + "-" + resume.contact.linkedin.icon + ".svg"
+                      "./assets/icons/" +
+                      theme +
+                      "-" +
+                      resume.contact.linkedin.icon +
+                      ".svg"
                     }
                     alt="linkedin"
                   />
