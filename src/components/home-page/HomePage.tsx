@@ -16,10 +16,11 @@ export default function HomePage() {
     let timeoutId: number;
 
     return () => {
-      clicks++
-      
+      clicks++;
+
       if (easterEggRef.current) {
-        easterEggRef.current.style.transform = clicks % 2 == 0 ? "rotate(-40deg)" : "rotate(40deg)";
+        easterEggRef.current.style.transform =
+          clicks % 2 == 0 ? "rotate(-40deg)" : "rotate(40deg)";
       }
 
       clearTimeout(timeoutId);
@@ -31,7 +32,7 @@ export default function HomePage() {
         toggleTheme();
         clicks = 0;
         if (!hasSeenDarkSide) {
-          console.log("Ranger, welcome to the dark side!")
+          console.log("Ranger, welcome to the dark side!");
           setHasSeenDarkSide(true);
         }
       }
@@ -60,8 +61,8 @@ export default function HomePage() {
             </span>
           </div>
           <div className="sub-heading">
-            I'm passionate and results-driven with expertise in building dynamic
-            web applications using Angular and TypeScript and robust and
+            I am a passionate and results-driven with expertise in building
+            dynamic web applications using Angular and TypeScript and robust and
             reliable backend systems using Java. I thrive on turning ideas into
             reality and creating user-friendly experiences that leave a lasting
             impact.
