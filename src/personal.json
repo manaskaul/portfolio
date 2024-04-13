@@ -1,3 +1,9 @@
 {
-  "heading": "Some Heading"
+  "personal": [
+    {
+      "heading": "Some Heading",
+      "description": "",
+      "imageLinks": []
+    }
+  ]
 }
