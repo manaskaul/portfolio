@@ -1,0 +1,37 @@
+name: Deploy Portfolio to Home Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Stop and remove existing container
+        run: |
+          docker stop portfolio-app || true
+          docker rm portfolio-app || true
+        continue-on-error: true
+      
+      - name: Build Docker image
+        run: |
+          docker build -t portfolio-app:latest .
+      
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            --name portfolio-app \
+            --restart unless-stopped \
+            -p 1234:1234 \
+            -v /portfolio:/app \
+            portfolio-app:latest
+      
+      - name: Clean up old images
+        run: |
+          docker image prune -f
