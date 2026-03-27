@@ -82,7 +82,6 @@ function Personal() {
             <div className="bento-overlay">
               <div className="bento-content">
                 <h3>{item.heading}</h3>
-                <p>{item.description}</p>
               </div>
             </div>
           </div>
