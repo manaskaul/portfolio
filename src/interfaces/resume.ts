@@ -30,4 +30,10 @@ export interface SubSection {
   subHeading1: string;
   subHeading2: string;
   description: string[];
+  projects?: Project[];
+}
+
+export interface Project {
+  name: string;
+  description: string[];
 }

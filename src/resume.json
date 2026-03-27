@@ -1,20 +1,15 @@
 {
   "name": "Manas Kaul",
-  "designation": "Full Stack Software Engineer",
-  "description": "I'm a Full-Stack Engineer at XPO, where I build dynamic web applications using Angular and TypeScript and robust and reliable backend systems using Java. I have a Bachelor of Technology degree in Computer Science from Dhirubhai Ambani Institute of Information and Communication Technology (DAIICT), one of the top engineering colleges in India.",
+  "designation": "Software Development Engineer II",
+  "description": "I am a Software Development Engineer II specializing in architecting distributed event-driven systems, microservices, and high-availability cloud infrastructure. With deep expertise across Java, Spring Boot, and Kafka, I thrive on building resilient, scalable platforms that process millions of events daily.",
   "contact": {
-    "address": {
-      "text": "Pune, Maharashtra",
-      "link": "https://maps.app.goo.gl/v5uvRSUg74GRqNcC8",
-      "icon": "address"
-    },
     "linkedin": {
       "text": "manas-kaul",
       "link": "https://www.linkedin.com/in/manas-kaul/",
       "icon": "linkedin"
     },
     "email": {
-      "text": "manas.kaul2",
+      "text": "manas.kaul2@gmail.com",
       "link": "mailto:manas.kaul2@gmail.com",
       "icon": "email"
     },
@@ -34,24 +29,46 @@
       "title": "Experience",
       "subsection": [
         {
-          "heading": "XPO, Inc",
-          "subHeading1": "Software Engineer - SDE II",
-          "description": [
-            "Developed end-to-end applications from the ground up, resulting in smooth development-to-production releases.",
-            "Improved user experience in existing applications, as well as the migration of legacy systems to newer technology and standards.",
-            "Collaborated with cross-functional teams to deliver projects on time and under budget.",
-            "All the efforts led to a yearly revenue savings surpassing $20 million.",
-            "Awarded XPO Super-Star and XPO Employee of the Quater."
+          "heading": "JPMorgan Chase & Co.",
+          "subHeading1": "Software Development Engineer II",
+          "description": [],
+          "projects": [
+            {
+              "name": "Golden Copy Data Source",
+              "description": [
+                "Architected and implemented a distributed event processing platform (PostgreSQL CDC → Kafka → stateless consumer microservices) processing 1M+ events/day with <1s end-to-end delivery SLA.",
+                "Designed authoritative event-sourcing model backed by PostgreSQL (ACID-compliant) with Kafka-based propagation, eliminating dependency on external caching layers and ensuring strong consistency under retries and failures.",
+                "Led schema design for 500+ attributes per event, introducing versioned schema strategy and extensible data modeling to support high-throughput OLTP writes.",
+                "Built a real-time rule evaluation engine supporting thousands of user-defined filters with <150ms matching latency, enabling personalized event delivery at scale.",
+                "Authored low-level design (LLD) and drove implementation across cross-functional stakeholders (data, infra, consumer teams), defining API contracts adopted by downstream services.",
+                "Owned performance tuning and capacity planning, benchmarking throughput (~700 events/min sustained) and identifying bottlenecks across database writes and consumer lag."
+              ]
+            },
+            {
+              "name": "Electronic Affirmation Router",
+              "description": [
+                "Designed and implemented multi-venue trade routing flow across 10+ microservices deployed on Kubernetes in JPMC private cloud, improving routing latency by 40% across complex trade setups.",
+                "Contributed to architecture handling ~1000 trades/day with daily notional value exceeding $200M, ensuring high reliability and accurate downstream settlement workflows.",
+                "Improved observability by standardizing structured logging, health checks, and alerting pipelines across services, reducing incident response time by 50% and improving SLA adherence."
+              ]
+            }
           ]
         },
         {
-          "subHeading1": "Associate Software Engineer - SDE I",
-          "description": [
-            "Spearheaded legacy application migration , overseeing the entire code base.",
-            "Led a team of 3, ensuring adherence to best practices and coding standards and achieving dev-to-deploy from scratch.",
-            "Collaborated with cross-functional teams to deliver projects on time and under budget.",
-            "Engaged in ongoing discussions with shareholders to ensure alignment between development efforts and evolving project objectives.",
-            "Introduced Angular 15 Module Federation."
+          "heading": "XPO",
+          "subHeading1": "Software Development Engineer",
+          "description": [],
+          "projects": [
+            {
+              "name": "Equipment Licensing and Location Management (ELLM)",
+              "description": [
+                "Owned production stability, CI/CD pipelines, and release coordination, ensuring smooth rollout and post-launch support.",
+                "Led end-to-end design and delivery for a 3-engineer team, driving architecture decisions and production rollout adopted across multiple regions.",
+                "Architected backend services using Spring Boot with REST APIs and relational data modeling, supporting regulatory workflows that contributed to $20M+ annual revenue enablement.",
+                "Led migration from legacy on-prem infrastructure to cloud-native deployment, decommissioning legacy systems and reducing operational costs by $50K+ annually.",
+                "Introduced Micro-Frontend architecture using Module Federation, enabling independent deployments and reducing release cycle time by 30%, improving parallel team productivity."
+              ]
+            }
           ]
         }
       ]
@@ -61,10 +78,9 @@
       "subsection": [
         {
           "heading": "DA-IICT, Gujarat",
-          "subHeading1": "July 2017 - April 2021",
+          "subHeading1": "B.Tech. in Computer Science & Engineering",
           "description": [
-            "B. Tech in Computer Science & Engineering",
-            "Member of DA-IICT Film Club"
+            "Completed rigorous coursework with a strong focus on data structures, distributed systems, and modern software engineering architecture."
           ]
         }
       ]
@@ -73,23 +89,24 @@
       "title": "Skills",
       "subsection": [
         {
-          "heading": "Programming",
-          "description": ["Javascript/Typescript", "Java", "Python"]
+          "heading": "Languages & Frameworks",
+          "description": ["Java", "Python", "JavaScript", "TypeScript", "Spring Boot", "Angular", "React"]
         },
         {
-          "heading": "Libraries/Frameworks",
-          "description": [
-            "Angular/React",
-            "RxJS",
-            "NgRx/Redux",
-            "Java Hibernate",
-            "Spring Boot",
-            "MySQL"
-          ]
+          "heading": "Databases",
+          "description": ["PostgreSQL", "MySQL", "Redis", "NoSQL"]
         },
         {
-          "heading": "Tools/Platforms",
-          "description": ["Git", "Figma", "Teamcity", "Docker", "CI/CD"]
+          "heading": "Cloud & Infrastructure",
+          "description": ["AWS", "Kafka", "Docker", "Kubernetes"]
+        },
+        {
+          "heading": "Tools",
+          "description": ["Git", "Jenkins", "TeamCity", "Maven", "Postman"]
+        },
+        {
+          "heading": "Practices",
+          "description": ["Distributed Systems", "Microservices Architecture", "CI/CD", "High Availability", "Event-Driven Systems"]
         }
       ]
     }

@@ -1,22 +1,28 @@
 .nav-bar {
   position: fixed;
-  top: 0;
-  height: 64px;
+  top: 24px;
+  left: 0;
   width: 100%;
-  max-width: var(--max-width);
-  /* background-color: hsla(0, 0%, 100%, 0.7); */
-  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
   z-index: 999;
+  pointer-events: none; /* Let clicks pass through the full width wrapper */
 
   .navigation {
-    padding: 16px;
-    border-bottom: 1px solid var(--outline-color);
-    margin: auto;
+    pointer-events: auto; /* Re-enable clicks on the pill itself */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
-    box-shadow: 0px 12px 16px -8px var(--shadow-color);
+    align-items: center;
+    width: calc(100% - 48px);
+    max-width: 1100px;
+    padding: 12px 24px;
+    border-radius: 100px;
+    
+    /* Enhance the global .glass class for the nav specifically */
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
 
     .left-nav {
       display: flex;
@@ -26,44 +32,86 @@
 
       .name {
         font-size: 1.25rem;
-        font-weight: bold;
+        font-weight: 700;
         cursor: pointer;
+        color: var(--text-main);
+        letter-spacing: -0.02em;
       }
 
       .designation {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        font-weight: 400;
         cursor: pointer;
+        color: var(--text-muted);
       }
-    }
-
-    .left-nav > a {
-      text-decoration: none;
-      margin: 0;
-      /* color: black; */
     }
 
     .end-nav {
       display: flex;
-      gap: 16px;
-    }
+      align-items: center;
+      gap: 20px;
 
-    .end-nav > a {
-      text-decoration: none;
-    }
+      a {
+        font-size: 0.95rem;
+        font-weight: 500;
+        position: relative;
+        color: var(--text-muted);
+        transition: color var(--transition-fast);
 
-    .navLinks > div {
-      cursor: pointer;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -4px;
+          left: 50%;
+          background: var(--accent-primary);
+          transition: width 0.3s ease, left 0.3s ease;
+          border-radius: 2px;
+        }
+
+        &:hover {
+          color: var(--text-main);
+        }
+
+        &:hover::after {
+          width: 100%;
+          left: 0;
+        }
+
+        &.active {
+          color: var(--accent-secondary);
+        }
+        
+        &.active::after {
+          width: 100%;
+          left: 0;
+          background: var(--accent-secondary);
+        }
+      }
+      
+      .seperator {
+        height: 16px;
+        margin: 0;
+        border-color: var(--border-color);
+      }
     }
   }
 
-  .navigation > a {
-    cursor: pointer;
-    color: #006adc;
-  }
-
-  @media (max-width: 500px) {
-    .designation {
-      display: none;
+  @media (max-width: 600px) {
+    top: 16px;
+    
+    .navigation {
+      width: calc(100% - 32px);
+      padding: 12px 20px;
+      
+      .left-nav .designation {
+        display: none;
+      }
+      
+      .left-nav .name {
+        font-size: 1.1rem;
+      }
     }
   }
 }

@@ -1,9 +1,28 @@
 {
   "personal": [
     {
-      "heading": "Some Heading",
-      "description": "",
-      "imageLinks": []
+      "heading": "Culinary Explorations",
+      "description": "Experimenting with global cuisines and perfecting the art of a Sunday roast.",
+      "imageLinks": ["https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop"],
+      "span": "large"
+    },
+    {
+      "heading": "Mountain Hiking",
+      "description": "Finding clarity and endurance on high altitude trails.",
+      "imageLinks": ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop"],
+      "span": "tall"
+    },
+    {
+      "heading": "Modern Architecture",
+      "description": "Studying minimal and brutalist structure design.",
+      "imageLinks": ["https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1000&auto=format&fit=crop"],
+      "span": "small"
+    },
+    {
+      "heading": "Analog Photography",
+      "description": "Capturing light and shadows on 35mm film.",
+      "imageLinks": ["https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop"],
+      "span": "small"
     }
   ]
 }

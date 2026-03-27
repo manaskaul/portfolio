@@ -7,119 +7,127 @@ export default function Resume() {
   const resume: ResumeItem = JSON.parse(JSON.stringify(resumeJson));
   const { theme } = useTheme();
 
-  const sections = resume.sections.map((section: Section, i: number) => {
-    const subSections = section.subsection.map(
-      (subSection: SubSection, i: number) => {
-        const subSectionDesc = subSection.description.map(
-          (desc: string, i: number) => {
-            return <li key={i}>{desc}</li>;
-          }
-        );
-
-        return (
-          <div className="sub-heading" key={i}>
-            <h3>{subSection.heading}</h3>
-            <h4>{subSection.subHeading1}</h4>
-            <ul>{subSectionDesc}</ul>
-          </div>
-        );
-      }
-    );
-
-    return (
-      <div className="sections" key={i}>
-        <h2>{section.title}</h2>
-        <>{subSections}</>
-      </div>
-    );
-  });
-
   return (
-    <div className="resume">
-      <div className="heading">
-        <h1>Resume</h1>
-        <div className="">
-          Full resume can be found{" "}
-          <a
-            href="./assets/manas_kaul-resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="resume-link"
-          >
-            here.
-          </a>
-        </div>
-        <div className="divider"></div>
-      </div>
-      <div className="content">
-        <div className="summary">
-          <h2>Summary</h2>
-          <div className="sub-heading">
-            <h4>{resume.name}</h4>
-            <p>{resume.description}</p>
-            <div className="contact-links">
-              <div className="contact-item">
-                <a
-                  href={resume.contact.address.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={
-                      "./assets/icons/" +
-                      theme +
-                      "-" +
-                      resume.contact.address.icon +
-                      ".svg"
-                    }
-                    alt="address"
-                  />
-                  {resume.contact.address.text}
-                </a>
-              </div>
-              <div className="contact-item">
-                <a
-                  href={resume.contact.email.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={
-                      "./assets/icons/" +
-                      theme +
-                      "-" +
-                      resume.contact.email.icon +
-                      ".svg"
-                    }
-                    alt="email"
-                  />
-                  {resume.contact.email.text}
-                </a>
-              </div>
-              <div className="contact-item">
-                <a
-                  href={resume.contact.linkedin.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={
-                      "./assets/icons/" +
-                      theme +
-                      "-" +
-                      resume.contact.linkedin.icon +
-                      ".svg"
-                    }
-                    alt="linkedin"
-                  />
-                  {resume.contact.linkedin.text}
-                </a>
-              </div>
-            </div>
+    <div className="resume-page">
+      <div className="resume-grid">
+        {/* Left Sticky Sidebar */}
+        <aside className="resume-sidebar glass">
+          <div className="sidebar-profile">
+            <h1 className="name">{resume.name}</h1>
+            <h2 className="title">{resume.designation}</h2>
+            <p className="description">{resume.description}</p>
           </div>
-        </div>
+          
+          <div className="sidebar-contact">
+            {Object.values(resume.contact).map((contact: any, idx: number) => (
+              <a 
+                key={idx}
+                href={contact.link} 
+                className="contact-btn"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={`./assets/icons/${theme}-${contact.icon}.svg`}
+                  alt={contact.icon}
+                  className="contact-icon"
+                />
+                <span>{contact.text}</span>
+              </a>
+            ))}
+            
+            <a 
+              href="./assets/manas_kaul-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="download-btn"
+            >
+              Download Full Resume
+            </a>
+          </div>
+        </aside>
 
-        <>{sections}</>
+        {/* Right Scrollable Content */}
+        <main className="resume-content">
+          {resume.sections.map((section: Section, index: number) => {
+            const isSkills = section.title.toLowerCase() === "skills";
+
+            // Group subsections properly: if heading exists, it starts a new group.
+            const groups: any[] = [];
+            if (!isSkills) {
+              section.subsection.forEach((sub) => {
+                if (sub.heading) {
+                  groups.push({ company: sub.heading, roles: [sub] });
+                } else if (groups.length > 0) {
+                  groups[groups.length - 1].roles.push(sub);
+                } else {
+                  groups.push({ company: null, roles: [sub] });
+                }
+              });
+            }
+
+            return (
+              <section className="resume-section" key={index}>
+                <h3 className="section-title">{section.title}</h3>
+                
+                {isSkills ? (
+                  <div className="skills-grid">
+                    {section.subsection.map((sub: SubSection, subIdx: number) => (
+                      <div key={subIdx} className="skill-category glass">
+                        <h4 className="item-heading">{sub.heading || sub.subHeading1}</h4>
+                        <div className="skill-tags">
+                          {sub.description.map((desc: string, i: number) => (
+                            <span key={i} className="skill-tag">{desc}</span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="timeline">
+                    {groups.map((group, gIdx) => (
+                      <div key={gIdx} className="timeline-item glass">
+                        {group.company && <h4 className="company-heading">{group.company}</h4>}
+                        <div className="roles-container">
+                          {group.roles.map((role: SubSection, rIdx: number) => (
+                            <div key={rIdx} className="role-block">
+                              <h5 className="item-subheading">{role.subHeading1}</h5>
+                              
+                              {/* Render generic role descriptions if any exist */}
+                              {role.description && role.description.length > 0 && (
+                                <ul className="item-list">
+                                  {role.description.map((desc: string, i: number) => (
+                                    <li key={i}>{desc}</li>
+                                  ))}
+                                </ul>
+                              )}
+
+                              {/* Render specific nested projects if they exist */}
+                              {role.projects && role.projects.length > 0 && (
+                                <div className="projects-container">
+                                  {role.projects.map((proj: any, pIdx: number) => (
+                                    <div key={pIdx} className="project-block">
+                                      <h6 className="project-name">{proj.name}</h6>
+                                      <ul className="item-list">
+                                        {proj.description.map((desc: string, i: number) => (
+                                          <li key={i}>{desc}</li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            );
+          })}
+        </main>
       </div>
     </div>
   );

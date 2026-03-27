@@ -5,7 +5,12 @@ import { Theme } from "../enums/theme";
 export const ThemeContext: Context<any> = createContext(null);
 
 export const ThemeProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
 
   const theme = isDarkMode ? Theme.DARK : Theme.LIGHT;
   const toggleTheme = () => {
