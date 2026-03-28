@@ -4,7 +4,7 @@ import Footer from "../footer/Footer";
 import TypingText from "../typing-text/TypingText";
 import "./HomePage.css";
 
-const arr = ["an Engineer", "a Developer", "an Architect", "a Designer"];
+const arr = ["an Engineer", "an Architect", "a Designer", "a Developer"];
 
 export default function HomePage() {
   const { toggleTheme } = useTheme();
