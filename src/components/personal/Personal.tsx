@@ -49,10 +49,11 @@ function Personal() {
             }
 
             if (selectedCategory.heading === 'Summit') {
-              // [0]=IMG_01(hero), [1]=IMG_02,
-              // [2]=VID_01, [3]=VID_02, [4]=VID_03, [5]=VID_04, [6]=VID_05
+              // [0]=IMG_01(hero), [1]=IMG_02, [2]=IMG_03,
+              // [3]=VID_01, [4]=VID_02, [5]=VID_03, [6]=VID_04, [7]=VID_05
               if (i === 0) return 'area-hero';
               if (i === 1) return 'area-img2';
+              if (i === 2) return 'area-img3';
               if (src.includes('VID_01')) return 'area-vid1';
               if (src.includes('VID_02')) return 'area-vid2';
               if (src.includes('VID_03')) return 'area-vid3';

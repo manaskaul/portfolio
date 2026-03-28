@@ -34,6 +34,7 @@
   --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.5);
+  --lightbox-overlay-bg: rgba(247, 248, 243, 0.95);
 }
 
 [data-theme="dark"] {
@@ -53,6 +54,7 @@
   --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.5);
   --glass-bg: rgba(21, 26, 35, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --lightbox-overlay-bg: rgba(10, 14, 19, 0.95);
 }
 
 * {

@@ -54,7 +54,7 @@
 
   &:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px var(--accent-glow);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     z-index: 2;
 
     .bento-overlay {
@@ -116,7 +116,7 @@
 .lightbox-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--lightbox-overlay-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   animation: fadeIn 0.3s ease forwards;
@@ -127,14 +127,14 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  /* Contain scroll physics strictly inside the wrapper on all browsers */
   overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch; /* iOS momentum scroll inside collage */
-  touch-action: pan-x pan-y;        /* Allow panning inside, block page scroll */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
   z-index: 2;
-  cursor: grab;
+  cursor: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background: var(--lightbox-overlay-bg);
 }
 
 .pan-zoom-wrapper::-webkit-scrollbar {
@@ -152,6 +152,7 @@
   justify-content: center;
   align-items: center;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--lightbox-overlay-bg);
 }
 
 .masonry-collage {
@@ -159,18 +160,19 @@
   grid-template-columns: repeat(12, 100px);
   grid-auto-rows: 100px;
   grid-auto-flow: dense;
-  gap: 12px; 
+  gap: 12px;
   justify-content: center;
   align-content: center;
   width: max-content;
   margin: 0 auto;
+  background: var(--lightbox-overlay-bg);
 }
 
 .collage-frame {
   margin: 0;
   border-radius: 4px;
   overflow: hidden;
-  background: rgba(255,255,255,0.05);
+  background: transparent;
   opacity: 1;
   transition: opacity 0.5s ease, transform var(--transition-fast);
 }
@@ -195,11 +197,12 @@
     "vid1 hero hero vid2"
     "vid1 hero hero vid2"
     "img5 img6 img7 img8";
-  gap: 16px; 
+  gap: 16px;
   justify-content: center;
   align-content: center;
   width: max-content;
   margin: 0 auto;
+  background: var(--lightbox-overlay-bg);
 }
 
 .area-hero { grid-area: hero; }
@@ -230,6 +233,7 @@
   align-content: center;
   width: max-content;
   margin: 0 auto;
+  background: var(--lightbox-overlay-bg);
 }
 
 .motion-matrix .area-hero { grid-area: hero; }
@@ -257,6 +261,7 @@
   align-content: center;
   width: max-content;
   margin: 0 auto;
+  background: var(--lightbox-overlay-bg);
 }
 
 .clicks-matrix .area-hero { grid-area: hero; }
@@ -274,15 +279,16 @@
   grid-template-columns: repeat(4, 350px);
   grid-template-rows: repeat(4, 350px);
   grid-template-areas:
-    "vid1 hero hero vid2"
-    "vid1 hero hero vid2"
-    "vid3 img2 img2 vid4"
-    "vid5 vid5 vid5 vid5";
+    "vid3 hero hero vid4"
+    "vid3 hero hero vid4"
+    "vid2 img2 img3 vid5"
+    "vid1 vid1 vid1 vid1";
   gap: 16px;
   justify-content: center;
   align-content: center;
   width: max-content;
   margin: 0 auto;
+  background: var(--lightbox-overlay-bg);
 }
 
 .summit-matrix .area-hero { grid-area: hero; }
@@ -292,6 +298,7 @@
 .summit-matrix .area-vid3 { grid-area: vid3; }
 .summit-matrix .area-vid4 { grid-area: vid4; }
 .summit-matrix .area-vid5 { grid-area: vid5; }
+.summit-matrix .area-img3 { grid-area: img3; }
 
 .collage-img {
   width: 100%;
@@ -309,21 +316,21 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  background: rgba(0,0,0,0.75);
+  background: var(--glass-bg);
   padding: 12px 24px;
   border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid var(--border-color);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 100;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  color: white;
+  box-shadow: var(--shadow-lg);
+  color: var(--text-main);
 }
 
 .zoom-btn {
   background: transparent;
   border: none;
-  color: white;
+  color: var(--text-main);
   font-size: 1.5rem;
   font-weight: 300;
   width: 32px;
@@ -344,7 +351,7 @@
   right: 48px;
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-main);
   font-size: 3.5rem;
   font-weight: 200;
   cursor: pointer;
