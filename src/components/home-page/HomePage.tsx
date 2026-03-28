@@ -43,7 +43,7 @@ export default function HomePage() {
     <div className="home-page">
       <div className="main-content">
         <div>
-          <img src="./assets/images/IMG_1423.jpeg" className="profile-pic" />
+          <img src="./assets/images/IMG_1423.webp" className="profile-pic" />
         </div>
         <div className="profile-text">
           <div className="name">
