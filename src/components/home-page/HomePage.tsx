@@ -4,7 +4,7 @@ import Footer from "../footer/Footer";
 import TypingText from "../typing-text/TypingText";
 import "./HomePage.css";
 
-const arr = ["an Engineer", "a Developer"];
+const arr = ["an Engineer", "a Developer", "an Architect", "a Designer"];
 
 export default function HomePage() {
   const { toggleTheme } = useTheme();
@@ -64,11 +64,10 @@ export default function HomePage() {
             </span>
           </div>
           <div className="sub-heading">
-            I am a passionate and results-driven with expertise in building
-            dynamic web applications using Angular and TypeScript and robust and
-            reliable backend systems using Java. I thrive on turning ideas into
-            reality and creating user-friendly experiences that leave a lasting
-            impact.
+            Architecting the future through precise engineering and fluid design.
+            I specialize in the orchestration of high-performance, full-stack
+            applications where architectural integrity meets intuitive,
+            high-fidelity experiences to solve complex problems with elegance.
           </div>
         </div>
       </div>
