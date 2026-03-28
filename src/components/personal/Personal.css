@@ -349,14 +349,33 @@
   position: fixed;
   top: 32px;
   right: 48px;
-  background: transparent;
-  border: none;
-  color: var(--text-main);
-  font-size: 3.5rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
   font-weight: 200;
   cursor: pointer;
-  z-index: 10;
-  transition: transform var(--transition-fast);
+  z-index: 10000;
+  transition: transform var(--transition-fast), background var(--transition-smooth), border var(--transition-smooth);
+  padding: 0;
+  line-height: 1;
+}
+
+[data-theme="light"] .lightbox-close {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .lightbox-close {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .lightbox-close:hover {

@@ -120,6 +120,19 @@ function Personal() {
     };
   }, [selectedCategory]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedCategory(null);
+      }
+    };
+
+    if (selectedCategory) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedCategory]);
+
   // Centering Engine: Executes strictly AFTER the layout mathematically stabilizes and bounds exist
   useEffect(() => {
     if (selectedCategory?.imageLinks && Object.keys(imageLayouts).length === selectedCategory.imageLinks.length) {
@@ -145,6 +158,57 @@ function Personal() {
     e.stopPropagation();
     setZoom(prev => Math.max(prev - 0.25, 0.5));
   };
+
+  // Pinch-to-Zoom Logic for Mobile UX
+  const initialPinchDistance = useRef<number | null>(null);
+  const initialZoomOnPinch = useRef<number>(zoom);
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        initialPinchDistance.current = dist;
+        initialZoomOnPinch.current = zoom;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 2 && initialPinchDistance.current !== null) {
+        // Prevent default browser zoom/scroll while pinching the canvas
+        if (e.cancelable) e.preventDefault();
+        
+        const currentDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        
+        const ratio = currentDist / initialPinchDistance.current;
+        // Apply smooth exponential-ish zoom scaling
+        const newZoom = Math.min(Math.max(initialZoomOnPinch.current * ratio, 0.5), 3);
+        setZoom(newZoom);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      initialPinchDistance.current = null;
+    };
+
+    el.addEventListener('touchstart', handleTouchStart);
+    el.addEventListener('touchmove', handleTouchMove, { passive: false });
+    el.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      el.removeEventListener('touchstart', handleTouchStart);
+      el.removeEventListener('touchmove', handleTouchMove);
+      el.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [selectedCategory, zoom]); // Re-bind when category opens or zoom changes
 
   return (
     <div className="personal-page">
@@ -193,7 +257,13 @@ function Personal() {
           <button className="lightbox-close" onClick={() => setSelectedCategory(null)}>×</button>
 
           {/* Natively Scrollable Physics Boundary Wrapper */}
-          <div className="pan-zoom-wrapper" ref={wrapperRef}>
+          <div 
+            className="pan-zoom-wrapper" 
+            ref={wrapperRef}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setSelectedCategory(null);
+            }}
+          >
              <div 
                className="spatial-canvas"
                style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
