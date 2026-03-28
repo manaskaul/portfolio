@@ -11,7 +11,13 @@ function Personal() {
 
   useEffect(() => {
     if (selectedCategory) {
-      document.body.style.overflow = "hidden";
+      // iOS-safe scroll lock: freeze html+body, remember position to prevent jump
+      const scrollY = window.scrollY;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       
       // Dynamic Orientation Engine
       if (selectedCategory.imageLinks) {
@@ -92,11 +98,24 @@ function Personal() {
         });
       }
     } else {
-      document.body.style.overflow = "scroll";
-      setImageLayouts({}); // Memory cleanup
+      // Restore scroll position exactly where the user was
+      const scrollY = Math.abs(parseInt(document.body.style.top || '0', 10));
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+      setImageLayouts({});
     }
     return () => {
-      document.body.style.overflow = "scroll";
+      const scrollY = Math.abs(parseInt(document.body.style.top || '0', 10));
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
     };
   }, [selectedCategory]);
 

@@ -105,8 +105,12 @@
 .lightbox {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
+  /* Use dynamic viewport height — critical for iOS Safari address bar */
+  height: 100dvh;
   z-index: 9999;
   display: flex;
+  /* Prevent any touch event from reaching the page behind */
+  touch-action: none;
 }
 
 .lightbox-overlay {
@@ -122,12 +126,15 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: auto; 
+  overflow: auto;
+  /* Contain scroll physics strictly inside the wrapper on all browsers */
   overscroll-behavior: contain;
-  z-index: 2; 
+  -webkit-overflow-scrolling: touch; /* iOS momentum scroll inside collage */
+  touch-action: pan-x pan-y;        /* Allow panning inside, block page scroll */
+  z-index: 2;
   cursor: grab;
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .pan-zoom-wrapper::-webkit-scrollbar {
@@ -136,8 +143,11 @@
 .pan-zoom-wrapper:active { cursor: grabbing; }
 
 .spatial-canvas {
-  width: 160vw;
-  padding: 10vh 15vw; 
+  /* On mobile 160vw is too narrow for a 4×350px grid (1400px+gaps).
+     max() picks whichever is bigger, giving mobile a solid floor. */
+  min-width: max(160vw, 1800px);
+  min-height: max(160vh, 1800px);
+  padding: 10vh 15vw;
   display: flex;
   justify-content: center;
   align-items: center;

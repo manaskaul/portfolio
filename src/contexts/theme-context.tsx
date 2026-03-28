@@ -6,10 +6,7 @@ export const ThemeContext: Context<any> = createContext(null);
 
 export const ThemeProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
+    return false; // Always default to light mode
   });
 
   const theme = isDarkMode ? Theme.DARK : Theme.LIGHT;
