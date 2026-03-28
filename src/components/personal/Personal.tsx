@@ -24,10 +24,25 @@ function Personal() {
               if (i === 0) return 'area-hero';
               if (src.includes('VID_01')) return 'area-vid1';
               if (src.includes('VID_02')) return 'area-vid2';
-              return `area-img${i}`;  // dynamically wraps img1 to img8 flawlessly!
+              return `area-img${i}`;
+            }
+
+            if (selectedCategory.heading === 'Motion') {
+              // Array: [0]=IMG_02(hero), [1]=IMG_01, [2]=IMG_03, [3]=IMG_04, [4]=IMG_05,
+              //        [5]=VID_01,       [6]=VID_02, [7]=VID_03, [8]=VID_04
+              if (i === 0) return 'area-hero';
+              if (i === 1) return 'area-img1';
+              if (i === 2) return 'area-img3';
+              if (i === 3) return 'area-img4';
+              if (i === 4) return 'area-img5';
+              if (src.includes('VID_01')) return 'area-vid1';
+              if (src.includes('VID_02')) return 'area-vid2';
+              if (src.includes('VID_03')) return 'area-vid3';
+              if (src.includes('VID_04')) return 'area-vid4';
+              return isLandscape ? 'landscape' : 'portrait';
             }
             
-            // Standard masonry dense fallback for smaller/random categories
+            // Standard masonry dense fallback
             const isHero = i === 0;
             return isHero 
               ? (isLandscape ? 'hero-landscape' : 'hero-portrait')
@@ -136,7 +151,11 @@ function Personal() {
                className="spatial-canvas"
                style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
              >
-                <div className={selectedCategory?.heading === 'Culinary' ? 'culinary-matrix' : 'masonry-collage'}>
+                <div className={
+                  selectedCategory?.heading === 'Culinary' ? 'culinary-matrix' :
+                  selectedCategory?.heading === 'Motion'   ? 'motion-matrix'   :
+                  'masonry-collage'
+                }>
                    {selectedCategory.imageLinks.map((src: string, i: number) => (
                      <div key={i} className={`collage-frame ${imageLayouts[i] || 'loading'}`}>
                         {src.endsWith('.mp4') || src.endsWith('.MOV') ? (

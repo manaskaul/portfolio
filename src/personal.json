@@ -29,7 +29,17 @@
     },
     {
       "heading": "Motion",
-      "imageLinks": ["https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1000&auto=format&fit=crop"],
+      "imageLinks": [
+        "/assets/images/motion/IMG_02.webp",
+        "/assets/images/motion/IMG_01.webp",
+        "/assets/images/motion/IMG_03.webp",
+        "/assets/images/motion/IMG_04.webp",
+        "/assets/images/motion/IMG_05.webp",
+        "/assets/images/motion/VID_01.mp4",
+        "/assets/images/motion/VID_02.mp4",
+        "/assets/images/motion/VID_03.mp4",
+        "/assets/images/motion/VID_04.mp4"
+      ],
       "span": "small"
     },
     {

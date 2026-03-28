@@ -3,8 +3,8 @@ import path from 'path';
 import { execSync } from 'child_process';
 import sharp from 'sharp';
 
-const SOURCE_DIR = './public/assets/images/culinary-raw';
-const TARGET_DIR = './public/assets/images/culinary';
+const SOURCE_DIR = './public/assets/images/motion-raw';
+const TARGET_DIR = './public/assets/images/motion';
 
 async function processMedia() {
   if (!fs.existsSync(TARGET_DIR)) {
@@ -29,8 +29,8 @@ async function processMedia() {
         .toFile(outputWebp);
     }
 
-    // Video processing: .MOV to .mp4
-    if (ext === '.mov') {
+    // Video processing: .mov and .mp4 (any casing) -> trimmed silent .mp4
+    if (ext === '.mov' || ext === '.mp4') {
       const outputMp4 = path.join(TARGET_DIR, `${baseName}.mp4`);
       
       console.log(`- Processing Video: ${file} -> ${baseName}.mp4`);
