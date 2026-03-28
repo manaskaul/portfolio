@@ -10,33 +10,36 @@ export default function HomePage() {
   const { toggleTheme } = useTheme();
   const easterEggRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
   const [hasSeenDarkSide, setHasSeenDarkSide] = useState(false);
+  const clickCount = useRef(0);
+  const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const easterEgg = () => {
-    let clicks = 0;
-    let timeoutId: number;
+  const handleEggClick = () => {
+    clickCount.current += 1;
 
-    return () => {
-      clicks++;
+    // Wiggle on each click
+    if (easterEggRef.current) {
+      easterEggRef.current.style.transform =
+        clickCount.current % 2 === 0 ? "rotate(-40deg)" : "rotate(40deg)";
+    }
 
-      if (easterEggRef.current) {
-        easterEggRef.current.style.transform =
-          clicks % 2 == 0 ? "rotate(-40deg)" : "rotate(40deg)";
+    // Reset counter after 1.5s of inactivity
+    if (timeoutId.current) clearTimeout(timeoutId.current);
+    timeoutId.current = setTimeout(() => {
+      clickCount.current = 0;
+      if (easterEggRef.current) easterEggRef.current.style.transform = "rotate(0deg)";
+    }, 1500);
+
+    // 3 clicks → toggle theme
+    if (clickCount.current >= 3) {
+      toggleTheme();
+      clickCount.current = 0;
+      if (timeoutId.current) clearTimeout(timeoutId.current);
+      if (easterEggRef.current) easterEggRef.current.style.transform = "rotate(0deg)";
+      if (!hasSeenDarkSide) {
+        console.log("🥚 You found it. Welcome to the other side.");
+        setHasSeenDarkSide(true);
       }
-
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        clicks = 0;
-      }, 1500);
-
-      if (clicks >= 4) {
-        toggleTheme();
-        clicks = 0;
-        if (!hasSeenDarkSide) {
-          console.log("Ranger, welcome to the dark side!");
-          setHasSeenDarkSide(true);
-        }
-      }
-    };
+    }
   };
 
   return (
@@ -51,7 +54,7 @@ export default function HomePage() {
             <img
               src="./assets/images/egg.png"
               className="egg"
-              onClick={easterEgg()}
+              onClick={handleEggClick}
               ref={easterEggRef}
             ></img>
           </div>
