@@ -28,8 +28,8 @@ function Personal() {
             }
 
             if (selectedCategory.heading === 'Motion') {
-              // Array: [0]=IMG_02(hero), [1]=IMG_01, [2]=IMG_03, [3]=IMG_04, [4]=IMG_05,
-              //        [5]=VID_01,       [6]=VID_02, [7]=VID_03, [8]=VID_04
+              // [0]=IMG_02(hero), [1]=IMG_01, [2]=IMG_03, [3]=IMG_04, [4]=IMG_05,
+              // [5]=VID_01, [6]=VID_02, [7]=VID_03, [8]=VID_04
               if (i === 0) return 'area-hero';
               if (i === 1) return 'area-img1';
               if (i === 2) return 'area-img3';
@@ -39,6 +39,33 @@ function Personal() {
               if (src.includes('VID_02')) return 'area-vid2';
               if (src.includes('VID_03')) return 'area-vid3';
               if (src.includes('VID_04')) return 'area-vid4';
+              return isLandscape ? 'landscape' : 'portrait';
+            }
+
+            if (selectedCategory.heading === 'Summit') {
+              // [0]=IMG_01(hero), [1]=IMG_02,
+              // [2]=VID_01, [3]=VID_02, [4]=VID_03, [5]=VID_04, [6]=VID_05
+              if (i === 0) return 'area-hero';
+              if (i === 1) return 'area-img2';
+              if (src.includes('VID_01')) return 'area-vid1';
+              if (src.includes('VID_02')) return 'area-vid2';
+              if (src.includes('VID_03')) return 'area-vid3';
+              if (src.includes('VID_04')) return 'area-vid4';
+              if (src.includes('VID_05')) return 'area-vid5';
+              return isLandscape ? 'landscape' : 'portrait';
+            }
+
+            if (selectedCategory.heading === 'Lens') {
+              // [0]=IMG_01(hero), [1]=IMG_02, [2]=IMG_03, [3]=IMG_04, [4]=IMG_05,
+              // [5]=VID_01, [6]=VID_02, [7]=VID_03
+              if (i === 0) return 'area-hero';
+              if (i === 1) return 'area-img2';
+              if (i === 2) return 'area-img3';
+              if (i === 3) return 'area-img4';
+              if (i === 4) return 'area-img5';
+              if (src.includes('VID_01')) return 'area-vid1';
+              if (src.includes('VID_02')) return 'area-vid2';
+              if (src.includes('VID_03')) return 'area-vid3';
               return isLandscape ? 'landscape' : 'portrait';
             }
             
@@ -154,6 +181,8 @@ function Personal() {
                 <div className={
                   selectedCategory?.heading === 'Culinary' ? 'culinary-matrix' :
                   selectedCategory?.heading === 'Motion'   ? 'motion-matrix'   :
+                  selectedCategory?.heading === 'Summit'   ? 'summit-matrix'   :
+                  selectedCategory?.heading === 'Lens'     ? 'clicks-matrix'   :
                   'masonry-collage'
                 }>
                    {selectedCategory.imageLinks.map((src: string, i: number) => (

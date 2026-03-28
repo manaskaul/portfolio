@@ -20,10 +20,13 @@
     {
       "heading": "Summit",
       "imageLinks": [
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=1200&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1522810486675-80255b0a3ca3?q=80&w=1200&auto=format&fit=crop"
+        "/assets/images/summit/IMG_01.webp",
+        "/assets/images/summit/IMG_02.webp",
+        "/assets/images/summit/VID_01.mp4",
+        "/assets/images/summit/VID_02.mp4",
+        "/assets/images/summit/VID_03.mp4",
+        "/assets/images/summit/VID_04.mp4",
+        "/assets/images/summit/VID_05.mp4"
       ],
       "span": "large"
     },
@@ -44,7 +47,16 @@
     },
     {
       "heading": "Lens",
-      "imageLinks": ["https://images.unsplash.com/photo-1516961642265-531546e84af2?q=80&w=1000&auto=format&fit=crop"],
+      "imageLinks": [
+        "/assets/images/clicks/IMG_01.webp",
+        "/assets/images/clicks/IMG_02.webp",
+        "/assets/images/clicks/IMG_03.webp",
+        "/assets/images/clicks/IMG_04.webp",
+        "/assets/images/clicks/IMG_05.webp",
+        "/assets/images/clicks/VID_01.mp4",
+        "/assets/images/clicks/VID_02.mp4",
+        "/assets/images/clicks/VID_03.mp4"
+      ],
       "span": "small"
     }
   ]
