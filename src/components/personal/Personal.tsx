@@ -5,7 +5,7 @@ import "./Personal.css";
 function Personal() {
   const hobbies = personalJson.personal;
   const [selectedCategory, setSelectedCategory] = useState<any | null>(null);
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(0.75);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [imageLayouts, setImageLayouts] = useState<Record<number, string>>({});
 
@@ -13,30 +13,42 @@ function Personal() {
     if (selectedCategory) {
       document.body.style.overflow = "hidden";
       
-      // Programmatically center the massive 2D canvas exactly at the middle of the screen
-      if (wrapperRef.current) {
-        const el = wrapperRef.current;
-        el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
-        el.scrollTop = (el.scrollHeight - el.clientHeight) / 2;
-      }
-
-      // Dynamic Orientation Engine: evaluates raw photos and calculates asymmetrical cluster mapping class
+      // Dynamic Orientation Engine
       if (selectedCategory.imageLinks) {
         selectedCategory.imageLinks.forEach((src: string, i: number) => {
-          const img = new Image();
-          img.onload = () => {
-            const isLandscape = img.width > img.height;
-            const isHero = i === 0; // The first picture anchors the massive centerpiece layout
-            const layoutClass = isHero 
+          const isVideo = src.endsWith('.mp4') || src.endsWith('.MOV');
+          const isCulinary = selectedCategory.heading === 'Culinary';
+          
+          const processLayout = (isLandscape: boolean) => {
+            if (isCulinary) {
+              if (i === 0) return 'area-hero';
+              if (src.includes('VID_01')) return 'area-vid1';
+              if (src.includes('VID_02')) return 'area-vid2';
+              return `area-img${i}`;  // dynamically wraps img1 to img8 flawlessly!
+            }
+            
+            // Standard masonry dense fallback for smaller/random categories
+            const isHero = i === 0;
+            return isHero 
               ? (isLandscape ? 'hero-landscape' : 'hero-portrait')
               : (isLandscape ? 'landscape' : 'portrait');
-            
-            setImageLayouts(prev => ({ ...prev, [i]: layoutClass }));
           };
-          img.src = src;
+
+          if (isVideo) {
+            const vid = document.createElement('video');
+            vid.onloadedmetadata = () => {
+              setImageLayouts(prev => ({ ...prev, [i]: processLayout(vid.videoWidth > vid.videoHeight) }));
+            };
+            vid.src = src;
+          } else {
+            const img = new Image();
+            img.onload = () => {
+              setImageLayouts(prev => ({ ...prev, [i]: processLayout(img.width > img.height) }));
+            };
+            img.src = src;
+          }
         });
       }
-
     } else {
       document.body.style.overflow = "scroll";
       setImageLayouts({}); // Memory cleanup
@@ -45,6 +57,22 @@ function Personal() {
       document.body.style.overflow = "scroll";
     };
   }, [selectedCategory]);
+
+  // Centering Engine: Executes strictly AFTER the layout mathematically stabilizes and bounds exist
+  useEffect(() => {
+    if (selectedCategory?.imageLinks && Object.keys(imageLayouts).length === selectedCategory.imageLinks.length) {
+      if (wrapperRef.current) {
+        const el = wrapperRef.current;
+        requestAnimationFrame(() => {
+          el.scrollTo({
+            left: (el.scrollWidth - el.clientWidth) / 2,
+            top: (el.scrollHeight - el.clientHeight) / 2,
+            behavior: 'auto'
+          });
+        });
+      }
+    }
+  }, [imageLayouts, selectedCategory]);
 
   const handleZoomIn = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -75,7 +103,7 @@ function Personal() {
               cursor: 'pointer'
             }}
             onClick={() => {
-              setZoom(1); // Reset zoom on new open
+              setZoom(0.75); // Reset zoom on new open
               setSelectedCategory(item);
             }}
           >
@@ -108,7 +136,7 @@ function Personal() {
                className="spatial-canvas"
                style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
              >
-                <div className="masonry-collage">
+                <div className={selectedCategory?.heading === 'Culinary' ? 'culinary-matrix' : 'masonry-collage'}>
                    {selectedCategory.imageLinks.map((src: string, i: number) => (
                      <div key={i} className={`collage-frame ${imageLayouts[i] || 'loading'}`}>
                         {src.endsWith('.mp4') || src.endsWith('.MOV') ? (

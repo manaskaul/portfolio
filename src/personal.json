@@ -2,7 +2,19 @@
   "personal": [
     {
       "heading": "Culinary",
-      "imageLinks": ["https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop"],
+      "imageLinks": [
+        "/assets/images/culinary/IMG_01.webp",
+        "/assets/images/culinary/IMG_02.webp",
+        "/assets/images/culinary/IMG_03.webp",
+        "/assets/images/culinary/IMG_04.webp",
+        "/assets/images/culinary/IMG_05.webp",
+        "/assets/images/culinary/IMG_06.webp",
+        "/assets/images/culinary/IMG_07.webp",
+        "/assets/images/culinary/IMG_08.webp",
+        "/assets/images/culinary/IMG_09.webp",
+        "/assets/images/culinary/VID_01.mp4",
+        "/assets/images/culinary/VID_02.mp4"
+      ],
       "span": "tall"
     },
     {

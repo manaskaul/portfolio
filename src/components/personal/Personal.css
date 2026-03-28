@@ -175,6 +175,35 @@
 .landscape { grid-column: span 4; grid-row: span 3; }
 .portrait { grid-column: span 3; grid-row: span 4; }
 
+/* Custom Exact 11-File Orbit Matrix for Culinary */
+.culinary-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 350px);
+  grid-template-rows: repeat(4, 350px);
+  grid-template-areas: 
+    "img1 img2 img3 img4"
+    "vid1 hero hero vid2"
+    "vid1 hero hero vid2"
+    "img5 img6 img7 img8";
+  gap: 16px; 
+  justify-content: center;
+  align-content: center;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.area-hero { grid-area: hero; }
+.area-vid1 { grid-area: vid1; }
+.area-vid2 { grid-area: vid2; }
+.area-img1 { grid-area: img1; }
+.area-img2 { grid-area: img2; }
+.area-img3 { grid-area: img3; }
+.area-img4 { grid-area: img4; }
+.area-img5 { grid-area: img5; }
+.area-img6 { grid-area: img6; }
+.area-img7 { grid-area: img7; }
+.area-img8 { grid-area: img8; }
+
 .collage-img {
   width: 100%;
   height: 100%;
