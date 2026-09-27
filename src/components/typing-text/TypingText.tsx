@@ -22,21 +22,20 @@ function TypingText({ textList }: { textList: string[] }) {
     };
 
     const typeWord = async (word: string) => {
-      if (textRef.current) {
-        for (let i = 0; i <= word.length; i++) {
-          textRef.current.textContent = word.slice(0, i);
-          await timer(200);
-        }
+      for (let i = 0; i <= word.length; i++) {
+        if (!textRef.current) return;
+        textRef.current.textContent = word.slice(0, i);
+        await timer(200);
       }
     };
 
     const deleteWord = async () => {
-      if (textRef.current) {
-        const word: string = textRef.current.textContent as string;
-        for (let i = word.length; i >= 0; i--) {
-          textRef.current.textContent = word.slice(0, i);
-          await timer(75);
-        }
+      if (!textRef.current) return;
+      const word: string = textRef.current.textContent as string;
+      for (let i = word.length; i >= 0; i--) {
+        if (!textRef.current) return;
+        textRef.current.textContent = word.slice(0, i);
+        await timer(75);
       }
     };
 

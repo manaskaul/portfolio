@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Options Pamphlet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .header {
+      width: 100%;
+      text-align: center;
+      padding: 40px 20px;
+      background: #111;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .header p {
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1400px;
+    }
+
+    /* Common Card Structure */
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      width: 320px;
+    }
+
+    .card-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card {
+      width: 100%;
+      height: 420px;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      margin: 0 0 8px 0;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      margin: 0 0 20px 0;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .card-btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    /* =========================================
+       OPTION 1: MINIMALIST & MONOCHROME
+       ========================================= */
+    .opt-minimal {
+      background: #ffffff;
+      color: #111111;
+      font-family: 'Inter', sans-serif;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .opt-minimal .avatar { background: #111; }
+    .opt-minimal .card-title { font-weight: 700; letter-spacing: -1px; }
+    .opt-minimal .card-subtitle { color: #666; font-weight: 500; }
+    .opt-minimal .card-text { color: #444; }
+    .opt-minimal .card-btn { background: #111; color: #fff; border-radius: 4px; }
+    .opt-minimal .card-btn:hover { background: #333; }
+
+    /* =========================================
+       OPTION 2: NEUMORPHISM / SOFT UI
+       ========================================= */
+    .opt-neumorphic {
+      background: #e0e5ec;
+      color: #4a5568;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    }
+    .opt-neumorphic .avatar { 
+      background: #e0e5ec; 
+      box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.5);
+    }
+    .opt-neumorphic .card-title { color: #2d3748; font-weight: 600; }
+    .opt-neumorphic .card-subtitle { color: #718096; }
+    .opt-neumorphic .card-text { color: #4a5568; }
+    .opt-neumorphic .card-btn { 
+      background: #e0e5ec; 
+      color: #3182ce; 
+      box-shadow: 6px 6px 12px rgb(163,177,198,0.6), -6px -6px 12px rgba(255,255,255, 0.5);
+    }
+    .opt-neumorphic .card-btn:hover {
+      box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.5);
+    }
+
+    /* =========================================
+       OPTION 3: CYBERPUNK / TERMINAL
+       ========================================= */
+    .opt-cyberpunk {
+      background: #0d0d12;
+      color: #a3a3a3;
+      font-family: 'Fira Code', monospace;
+      border: 1px solid #232323;
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.05);
+      position: relative;
+    }
+    .opt-cyberpunk::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: #00ffaa;
+      border-top-left-radius: 20px; border-top-right-radius: 20px;
+    }
+    .opt-cyberpunk .avatar { background: transparent; border: 2px dashed #00ffaa; border-radius: 0; }
+    .opt-cyberpunk .card-title { color: #ffffff; font-weight: 500; font-size: 1.3rem; }
+    .opt-cyberpunk .card-subtitle { color: #00ffaa; font-size: 0.8rem; }
+    .opt-cyberpunk .card-btn { 
+      background: transparent; 
+      color: #00ffaa; 
+      border: 1px solid #00ffaa; 
+      border-radius: 0;
+    }
+    .opt-cyberpunk .card-btn:hover { background: rgba(0,255,170,0.1); }
+
+    /* =========================================
+       OPTION 4: GLASSMORPHISM & VIBRANT
+       ========================================= */
+    .wrapper-glass {
+      position: relative;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+      padding: 2px; /* acts as border */
+    }
+    .wrapper-glass::before {
+      content: '';
+      position: absolute;
+      top: -30px; left: -30px; width: 100px; height: 100px;
+      background: #4facfe; border-radius: 50%; filter: blur(30px); z-index: -1;
+    }
+    .wrapper-glass::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -30px; width: 120px; height: 120px;
+      background: #f093fb; border-radius: 50%; filter: blur(30px); z-index: -1;
+    }
+    .opt-glass {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: #333;
+      font-family: 'Inter', sans-serif;
+      height: 100%;
+    }
+    .opt-glass .avatar { background: rgba(255,255,255,0.8); }
+    .opt-glass .card-title { color: #111; font-weight: 700; }
+    .opt-glass .card-subtitle { color: #555; }
+    .opt-glass .card-btn { 
+      background: rgba(255,255,255,0.7); 
+      color: #111; 
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .opt-glass .card-btn:hover { background: rgba(255,255,255,0.9); }
+    
+    /* =========================================
+       OPTION 5: EDITORIAL / CLASSIC ELEGANCE
+       ========================================= */
+    .opt-editorial {
+      background: #fdfbf7;
+      color: #2c2c2c;
+      font-family: 'Playfair Display', serif;
+      border: 1px solid #dcd7cb;
+      border-radius: 0;
+    }
+    .opt-editorial .avatar { background: #2c2c2c; border-radius: 0; }
+    .opt-editorial .card-title { font-weight: 700; font-size: 1.8rem; font-style: italic; }
+    .opt-editorial .card-subtitle { font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #8c8273; margin-bottom: 24px; }
+    .opt-editorial .card-text { font-size: 1rem; color: #4a4a4a; }
+    .opt-editorial .card-btn { 
+      background: transparent; 
+      color: #2c2c2c; 
+      border-bottom: 1px solid #2c2c2c; 
+      border-radius: 0;
+      padding: 8px 0;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .opt-editorial .card-btn:hover { color: #8c8273; border-color: #8c8273; }
+
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Design Themes Portfolio</h1>
+    <p>A quick comparison of different visual aesthetics to choose from.</p>
+  </div>
+
+  <div class="container">
+    
+    <!-- MINIMALIST -->
+    <div class="card-wrapper">
+      <div class="card-label">1. Minimalist Monochrome</div>
+      <div class="card opt-minimal">
+        <div class="avatar"></div>
+        <h2 class="card-title">Manas Kaul</h2>
+        <p class="card-subtitle">Senior Software Engineer</p>
+        <p class="card-text">Clean, timeless, and highly legible. Focuses purely on content and typography with high contrast and generous whitespace.</p>
+        <button class="card-btn">View Profile</button>
+      </div>
+    </div>
+
+    <!-- NEUMORPHIC -->
+    <div class="card-wrapper">
+      <div class="card-label">2. Neumorphic (Soft UI)</div>
+      <div class="card opt-neumorphic">
+        <div class="avatar"></div>
+        <h2 class="card-title">Manas Kaul</h2>
+        <p class="card-subtitle">Senior Software Engineer</p>
+        <p class="card-text">Soft, extruded physical surfaces. Relies entirely on light and shadow rather than borders to define elements. Elegant and calming.</p>
+        <button class="card-btn">View Profile</button>
+      </div>
+    </div>
+
+    <!-- CYBERPUNK -->
+    <div class="card-wrapper">
+      <div class="card-label">3. Cyberpunk / Terminal</div>
+      <div class="card opt-cyberpunk">
+        <div class="avatar"></div>
+        <h2 class="card-title">Manas.Kaul()</h2>
+        <p class="card-subtitle">> _SENIOR_SOFTWARE_ENGINEER</p>
+        <p class="card-text">Developer-first aesthetic. Deep blacks, glowing neon accents, monospaced typography, and technical precision.</p>
+        <button class="card-btn">EXECUTE</button>
+      </div>
+    </div>
+
+    <!-- GLASSMORPHISM -->
+    <div class="card-wrapper">
+      <div class="card-label">4. Vibrant Glassmorphism</div>
+      <div class="wrapper-glass">
+        <div class="card opt-glass">
+          <div class="avatar"></div>
+          <h2 class="card-title">Manas Kaul</h2>
+          <p class="card-subtitle">Senior Software Engineer</p>
+          <p class="card-text">Modern Web3/Apple aesthetic. Frosted glass panels layered over colorful, blurry gradients. Very dynamic and premium.</p>
+          <button class="card-btn">View Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDITORIAL -->
+    <div class="card-wrapper">
+      <div class="card-label">5. Classic Editorial</div>
+      <div class="card opt-editorial">
+        <div class="avatar"></div>
+        <h2 class="card-title">Manas Kaul</h2>
+        <p class="card-subtitle">Senior Software Engineer</p>
+        <p class="card-text">Inspired by print magazines like Vogue or NYT. Serifs, strict grids, thin lines, and a muted, organic color palette.</p>
+        <button class="card-btn">Read More</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
