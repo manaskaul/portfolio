@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
+import resumeJson from "../../resume.json";
 
 export default function NavBar() {
   const location = useLocation();
@@ -9,10 +10,10 @@ export default function NavBar() {
       <div className="navigation glass">
         <div className="left-nav">
           <Link to={"/"} className="name">
-            Manas Kaul
+            {resumeJson.name}
           </Link>
           <Link to={"/"} className="designation">
-            Software Dev Engineer II
+            {resumeJson.designation}
           </Link>
         </div>
         <div className="end-nav">

@@ -3,6 +3,7 @@ import { useTheme } from "../../hooks/use-theme";
 import Footer from "../footer/Footer";
 import TypingText from "../typing-text/TypingText";
 import "./HomePage.css";
+import resumeJson from "../../resume.json";
 
 const arr = ["an Engineer", "an Architect", "a Designer", "a Developer"];
 
@@ -50,7 +51,7 @@ export default function HomePage() {
         </div>
         <div className="profile-text">
           <div className="name">
-            Manas Kaul
+            {resumeJson.name}
             <img
               src="./assets/images/egg.png"
               className="egg"
