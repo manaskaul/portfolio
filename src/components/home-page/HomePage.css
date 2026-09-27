@@ -29,12 +29,9 @@
   border: 1px dashed var(--accent-primary);
   box-shadow: 0 0 30px var(--accent-glow);
   transition: all var(--transition-smooth);
-  filter: grayscale(100%) contrast(150%) brightness(0.8);
-  position: relative;
 }
 
 .home-page .main-content .profile-pic:hover {
-  filter: grayscale(0%) contrast(120%) brightness(1);
   border-style: solid;
   border-color: var(--accent-secondary);
   box-shadow: 0 0 50px rgba(255, 0, 85, 0.3);
@@ -58,11 +55,6 @@
   align-items: center;
 }
 
-.home-page .main-content .profile-text .name::after {
-  content: '()';
-  color: var(--accent-secondary);
-}
-
 .home-page .main-content .profile-text .heading {
   font-size: 1.5rem;
   font-weight: 500;
@@ -80,7 +72,6 @@
   color: var(--text-muted);
   border-left: 2px solid var(--border-color);
   padding-left: 16px;
-  background: rgba(0,0,0,0.2);
   padding: 16px;
 }
 

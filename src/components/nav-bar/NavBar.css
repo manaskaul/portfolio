@@ -37,11 +37,6 @@
   color: var(--text-main);
 }
 
-.nav-bar .navigation .left-nav .name::after {
-  content: '()';
-  color: var(--accent-secondary);
-}
-
 .nav-bar .navigation .left-nav .designation {
   font-size: 0.9rem;
   font-weight: 500;

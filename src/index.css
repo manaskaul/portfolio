@@ -21,11 +21,11 @@
 
 /* Light Theme (Light Terminal / Retro Hacker) */
 [data-theme="light"] {
-  --background-color: #f4f4f5;
-  --surface-color: #ffffff;
-  --border-color: #d4d4d8;
-  --text-main: #18181b;
-  --text-muted: #52525b;
+  --background-color: #ffffff;
+  --surface-color: #fafafa;
+  --border-color: #e5e5e5;
+  --text-main: #111111;
+  --text-muted: #666666;
   
   --accent-primary: #059669; /* Terminal Green Dark */
   --accent-secondary: #e11d48; /* Terminal Red Dark */

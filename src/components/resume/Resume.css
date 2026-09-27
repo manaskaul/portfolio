@@ -43,11 +43,6 @@
   line-height: 1.1;
 }
 
-.sidebar-profile .name::after {
-  content: '()';
-  color: var(--accent-secondary);
-}
-
 .sidebar-profile .title {
   font-size: 1rem;
   font-weight: 500;
@@ -226,7 +221,7 @@
 }
 
 .timeline-item .project-name::before {
-  content: 'func ';
+  content: '>> ';
   color: var(--accent-secondary);
 }
 
