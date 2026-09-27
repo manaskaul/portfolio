@@ -6,7 +6,7 @@ export const ThemeContext: Context<any> = createContext(null);
 
 export const ThemeProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    return false; // Always default to light mode
+    return true; // Always default to dark mode
   });
 
   const theme = isDarkMode ? Theme.DARK : Theme.LIGHT;
